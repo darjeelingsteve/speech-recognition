@@ -9,7 +9,9 @@
 import Foundation
 import Speech
 
+/// The class used to control speech recognition sessions.
 class SpeechController {
+    private static let inputNodeBus: AVAudioNodeBus = 0
     
     /// The speech recogniser used by the controller to record the user's speech.
     private let speechRecogniser = SFSpeechRecognizer(locale: Locale(identifier: "en-GB"))!
@@ -62,12 +64,12 @@ class SpeechController {
             }
             
             if result?.isFinal ?? (error != nil) {
-                inputNode.removeTap(onBus: 0)
+                inputNode.removeTap(onBus: SpeechController.inputNodeBus)
             }
         }
         
-        let recordingFormat = inputNode.outputFormat(forBus: 0)
-        inputNode.installTap(onBus: 0, bufferSize: 1024, format: recordingFormat) { (buffer: AVAudioPCMBuffer, when: AVAudioTime) in
+        let recordingFormat = inputNode.outputFormat(forBus: SpeechController.inputNodeBus)
+        inputNode.installTap(onBus: SpeechController.inputNodeBus, bufferSize: 1024, format: recordingFormat) { (buffer: AVAudioPCMBuffer, when: AVAudioTime) in
             self.recognitionRequest?.append(buffer)
         }
         

@@ -57,19 +57,12 @@ class SpeechController {
         }
         
         recognitionTask = speechRecogniser.recognitionTask(with: recognitionRequest) { [unowned self] result, error in
-            var isFinal = false
-            
             if let result = result {
                 self.delegate?.speechController(self, didRecogniseText: result.bestTranscription.formattedString)
-                isFinal = result.isFinal
             }
             
-            if error != nil || isFinal {
-                self.audioEngine.stop()
+            if result?.isFinal ?? (error != nil) {
                 inputNode.removeTap(onBus: 0)
-                
-                self.recognitionRequest = nil
-                self.recognitionTask = nil
             }
         }
         

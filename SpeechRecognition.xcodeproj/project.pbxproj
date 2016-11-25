@@ -14,6 +14,7 @@
 		4811EF211DE74B7C00A10218 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4811EF1F1DE74B7C00A10218 /* LaunchScreen.storyboard */; };
 		4811EF291DE74B8700A10218 /* SpeechController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4811EF281DE74B8700A10218 /* SpeechController.swift */; };
 		4811EF2B1DE7582B00A10218 /* SpeechRecordingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4811EF2A1DE7582B00A10218 /* SpeechRecordingControl.swift */; };
+		488BDE6F1DE7995E00444299 /* UIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488BDE6E1DE7995E00444299 /* UIController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		4811EF221DE74B7C00A10218 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4811EF281DE74B8700A10218 /* SpeechController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechController.swift; sourceTree = "<group>"; };
 		4811EF2A1DE7582B00A10218 /* SpeechRecordingControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechRecordingControl.swift; sourceTree = "<group>"; };
+		488BDE6E1DE7995E00444299 /* UIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				4811EF221DE74B7C00A10218 /* Info.plist */,
 				4811EF281DE74B8700A10218 /* SpeechController.swift */,
 				4811EF2A1DE7582B00A10218 /* SpeechRecordingControl.swift */,
+				488BDE6E1DE7995E00444299 /* UIController.swift */,
 			);
 			path = SpeechRecognition;
 			sourceTree = "<group>";
@@ -147,6 +150,7 @@
 				4811EF2B1DE7582B00A10218 /* SpeechRecordingControl.swift in Sources */,
 				4811EF171DE74B7C00A10218 /* AppDelegate.swift in Sources */,
 				4811EF291DE74B8700A10218 /* SpeechController.swift in Sources */,
+				488BDE6F1DE7995E00444299 /* UIController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,6 +312,7 @@
 				4811EF271DE74B7C00A10218 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

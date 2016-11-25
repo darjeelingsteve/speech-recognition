@@ -9,17 +9,32 @@
 import UIKit
 
 class ViewController: UIViewController {
+    private lazy var speechController: SpeechController = {
+        let speechController = SpeechController()
+        speechController.delegate = self
+        return speechController
+    }()
+    fileprivate lazy var uiController: UIController = {
+        return UIController(view: self.view, textLabel: self.textLabel)
+    }()
+    
+    @IBOutlet private var textLabel: UILabel!
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    @IBAction private func startRecording(_ sender: Any) {
+        do {
+            try speechController.startRecording()
+        } catch {
+            print("Could not begin recording")
+        }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    @IBAction private func stopRecording(_ sender: Any) {
+        speechController.stopRecording()
     }
-
-
 }
 
+extension ViewController: SpeechControllerDelegate {
+    func speechController(_ speechController: SpeechController, didRecogniseText text: String) {
+        uiController.update(withSpokenText: text)
+    }
+}

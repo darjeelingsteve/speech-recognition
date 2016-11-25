@@ -40,6 +40,11 @@ class SpeechController {
             self.recognitionTask = nil
         }
         
+        guard SFSpeechRecognizer.authorizationStatus() == .authorized else {
+            SFSpeechRecognizer.requestAuthorization({ _ in })
+            return
+        }
+        
         let audioSession = AVAudioSession.sharedInstance()
         try audioSession.setCategory(AVAudioSessionCategoryRecord)
         try audioSession.setMode(AVAudioSessionModeMeasurement)

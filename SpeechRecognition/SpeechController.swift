@@ -30,6 +30,10 @@ class SpeechController {
     ///
     /// - Throws: Errors thrown by the creation of the speech recognition session
     func startRecording() throws {
+        guard speechRecogniser.isAvailable else {
+            // Speech recognition is unavailable, so do not attempt to start.
+            return
+        }
         if let recognitionTask = recognitionTask {
             // We have a recognition task still running, so cancel it before starting a new one.
             recognitionTask.cancel()
